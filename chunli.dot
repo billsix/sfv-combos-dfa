@@ -1,0 +1,47 @@
+digraph dfa {
+  "Chun-Li" [shape=square]
+  "Very Close Range" [shape=square]
+  "Close Range" [shape=square]
+  "Mid Range" [shape=square]
+  "Max Range" [shape=square]
+  "Anti Air" [shape=square]
+  "Anti Crossup" [shape=square]
+  "St.LP" [shape=circle]
+  "St.MP" [shape=circle]
+  "St.HP" [shape=circle]
+  "St.LK" [shape=circle]
+  "St.MK" [shape=circle]
+  "St.HK" [shape=circle]
+  "Cr.LP" [shape=circle]
+  "Cr.MP" [shape=circle]
+  "Cr.HP" [shape=circle]
+  "Cr.LK" [shape=circle]
+  "Cr.MK" [shape=circle]
+  "Cr.HK" [shape=doublecircle]
+  "QCF LK" [shape=doublecircle]
+  "QCF MK" [shape=doublecircle]
+  "QCF HK" [shape=doublecircle]
+  "B+MP" [shape=circle]
+  "B+HP" [shape=circle]
+  "DF+MK" [shape=circle]
+  "DF+HK" [shape=circle]
+  "Down Charge LK" [shape=doublecircle]
+  "Down Charge MK" [shape=doublecircle]
+  "Down Charge HK" [shape=doublecircle]
+  "CA" [shape=doublecircle]
+
+  "Chun-Li" -> "Very Close Range"
+  "Chun-Li" -> "Close Range"
+  "Chun-Li" -> "Mid Range"
+  "Chun-Li" -> "Max Range"
+
+  "Close Range" -> "St.MP"
+  "St.MP" -> "Cr.MK" [label="link"]
+  "Mid Range" -> "Cr.MK"
+
+  "Cr.MK" -> "QCF LK" 
+  "Cr.MK" -> "QCF MK" 
+  "Cr.MK" -> "QCF HK" 
+
+  "Cr.MK" -> "Down Charge MK"  [label="Not enough time to charge if started with St.MP"]
+}

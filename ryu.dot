@@ -6,7 +6,7 @@ digraph dfa {
   "Max Range" [shape=square]
   "Anti Air" [shape=square]
   "Anti Crossup" [shape=square]
-  //"St.LP" [shape=circle]
+  "St.LP" [shape=circle]
   "St.MP" [shape=circle]
   "St.HP" [shape=doublecircle]
   //"St.LK" [shape=circle]
@@ -65,5 +65,6 @@ digraph dfa {
   "St.MP" -> "Cr.HP" [label="+1, If close enough"]
   "St.MP" -> "St.HP" [label="+1, If close enough"]
   "St.MP" -> "St.MP" [label="+1, Frame trap"]
+  "Very Close Range" -> "Cr.LP"
   "Very Close Range" -> "Cr.LK"
 }
