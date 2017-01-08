@@ -1,8 +1,11 @@
 digraph dfa {
-  "" [shape=none]
-  "Very Close Range" [shape=none]
-  "Close Range" [shape=none]
-  "Mid Range" [shape=none]
+  "Ryu" [shape=square]
+  "Very Close Range" [shape=square]
+  "Close Range" [shape=square]
+  "Mid Range" [shape=square]
+  "Max Range" [shape=square]
+  "Anti Air" [shape=square]
+  "Anti Crossup" [shape=square]
   //"St.LP" [shape=circle]
   "St.MP" [shape=circle]
   "St.HP" [shape=doublecircle]
@@ -14,35 +17,53 @@ digraph dfa {
   "Cr.HP" [shape=circle]
   "Cr.LK" [shape=circle]
   "Cr.MK" [shape=circle]
-  //"Cr.HK" [shape=doublecircle]
+  "Cr.HK" [shape=doublecircle]
+  "B+HK" [shape=circle]
+  "F+HP" [shape=circle]
   //"QCF LP" [shape=doublecircle]
   //"QCF MP" [shape=doublecircle]
   "QCF HP" [shape=doublecircle]
-  //"QCB LK" [shape=doublecircle]
+  "QCB LK" [shape=doublecircle]
   "QCB MK" [shape=doublecircle]
   //"QCB HK" [shape=doublecircle]
-  //"DP LP" [shape=doublecircle]
-  //"DP MP" [shape=doublecircle]
-  "DP HP" [shape=doublecircle]
+  "DP LP" [shape=doublecircle]
+  "DP MP" [shape=doublecircle]
+  dphpcombo [label = "DP HP", shape=doublecircle]
+  dphpantiair [label = "DP HP",shape=doublecircle]
   "CA" [shape=doublecircle]
-  
-  "" -> "Very Close Range"
-  "" -> "Close Range"
-  "" -> "Mid Range"
-  "Very Close Range" -> "Cr.LK"
-  "Cr.LK" -> "Cr.LP"
-  "Cr.LP" -> "DP HP"
+  "Jump Back + HP"  [shape=doublecircle]
+  "Anti Air" -> dphpantiair
+  "Anti Air" -> "DP LP"
+  "Anti Air" -> "DP MP"
+  "Anti Air" -> "St.HK"
+  "Anti Crossup" -> "Jump Back + HP"
+  "B+HK" -> "St.LK" 
+  "Close Range" -> "St.LK"
   "Close Range" -> "St.MP"
-  "Mid Range" -> "Cr.MK"
-  "Cr.MK" -> "QCF HP"
-  "QCF HP" -> "CA" [label="If meter"]
-  "St.MP" -> "St.MP" [label="+1, Frame trap"]
-  "St.MP" -> "St.HP" [label="+1, If close enough"]
-  "St.MP" -> "Cr.HP" [label="+1, If close enough"]
+  "Cr.HP" -> dphpcombo
   "Cr.HP" -> "QCB MK"
-  "Cr.HP" -> "DP HP"
-  "DP HP" -> "CA" [label="If meter"]
-  "St.HP" -> "St.HK" [label="If standing"]
+  "Cr.LK" -> "Cr.LP"
+  "Cr.LP" -> dphpcombo [label="confirm"]
+  "Cr.MK" -> "QCF HP"
+  dphpcombo -> "CA" [label="If meter"]
+  "F+HP" -> "B+HK" 
+  "Max Range" -> "Cr.HK"
+  "Max Range" -> "F+HP"
+  "Mid Range" -> "B+HK"
+  "Mid Range" -> "Cr.MK"
+  "QCB LK" -> "CA"
+  "QCF HP" -> "CA" [label="If meter"]
+  "Ryu" -> "Anti Air"
+  "Ryu" -> "Anti Crossup"
+  "Ryu" -> "Close Range"
+  "Ryu" -> "Max Range"
+  "Ryu" -> "Mid Range"
+  "Ryu" -> "Very Close Range"
   "St.HP" -> "Cr.HP" [label="VTrigger"]
-
+  "St.HP" -> "St.HK" [label="If standing"]
+  "St.LK" -> "QCB LK"
+  "St.MP" -> "Cr.HP" [label="+1, If close enough"]
+  "St.MP" -> "St.HP" [label="+1, If close enough"]
+  "St.MP" -> "St.MP" [label="+1, Frame trap"]
+  "Very Close Range" -> "Cr.LK"
 }
