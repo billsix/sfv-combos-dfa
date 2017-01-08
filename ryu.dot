@@ -1,0 +1,48 @@
+digraph dfa {
+  "" [shape=none]
+  "Very Close Range" [shape=none]
+  "Close Range" [shape=none]
+  "Mid Range" [shape=none]
+  //"St.LP" [shape=circle]
+  "St.MP" [shape=circle]
+  "St.HP" [shape=doublecircle]
+  //"St.LK" [shape=circle]
+  //"St.MK" [shape=circle]
+  "St.HK" [shape=doublecircle]
+  "Cr.LP" [shape=circle]
+  //"Cr.MP" [shape=circle]
+  "Cr.HP" [shape=circle]
+  "Cr.LK" [shape=circle]
+  "Cr.MK" [shape=circle]
+  //"Cr.HK" [shape=doublecircle]
+  //"QCF LP" [shape=doublecircle]
+  //"QCF MP" [shape=doublecircle]
+  "QCF HP" [shape=doublecircle]
+  //"QCB LK" [shape=doublecircle]
+  "QCB MK" [shape=doublecircle]
+  //"QCB HK" [shape=doublecircle]
+  //"DP LP" [shape=doublecircle]
+  //"DP MP" [shape=doublecircle]
+  "DP HP" [shape=doublecircle]
+  "CA" [shape=doublecircle]
+  
+  "" -> "Very Close Range"
+  "" -> "Close Range"
+  "" -> "Mid Range"
+  "Very Close Range" -> "Cr.LK"
+  "Cr.LK" -> "Cr.LP"
+  "Cr.LP" -> "DP HP"
+  "Close Range" -> "St.MP"
+  "Mid Range" -> "Cr.MK"
+  "Cr.MK" -> "QCF HP"
+  "QCF HP" -> "CA" [label="If meter"]
+  "St.MP" -> "St.MP" [label="+1, Frame trap"]
+  "St.MP" -> "St.HP" [label="+1, If close enough"]
+  "St.MP" -> "Cr.HP" [label="+1, If close enough"]
+  "Cr.HP" -> "QCB MK"
+  "Cr.HP" -> "DP HP"
+  "DP HP" -> "CA" [label="If meter"]
+  "St.HP" -> "St.HK" [label="If standing"]
+  "St.HP" -> "Cr.HP" [label="VTrigger"]
+
+}
