@@ -28,13 +28,14 @@ digraph dfa {
   "Down Charge LK" [shape=doublecircle]
   "Down Charge MK" [shape=doublecircle]
   "Down Charge HK" [shape=doublecircle]
+  "InstaAir Legs (D,DF,F,UF,F,DF Kick)" [shape=circle]
   "CA" [shape=doublecircle]
 
   "Chun-Li" -> "Very Close Range"
   "Chun-Li" -> "Close Range"
   "Chun-Li" -> "Mid Range"
   "Chun-Li" -> "Max Range"
-
+  "Chun-Li" -> "InstaAir Legs (D,DF,F,UF,F,DF Kick)"
   "Close Range" -> "St.MP"
   "St.MP" -> "Cr.MK" [label="link"]
   "Mid Range" -> "Cr.MK"
