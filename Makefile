@@ -1,7 +1,7 @@
-all: ryu.png
+all: ryu.png chunli.png dhalsim.png
 
-ryu.png: ryu.dot
-	dot -Tpng ryu.dot -o ryu.png
+%.png: %.dot
+	dot -Tpng $< -o $@
 
 clean:
 	rm *.png
