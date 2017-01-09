@@ -67,4 +67,6 @@ digraph dfa {
   "St.MP" -> "St.MP" [label="+1, Frame trap"]
   "Very Close Range" -> "Cr.LP"
   "Very Close Range" -> "Cr.LK"
+  "Very Close Range" -> "St.LP"
+
 }
