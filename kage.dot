@@ -1,0 +1,101 @@
+digraph dfa {
+  "Kage" [shape=square]
+  "Very Close Range" [shape=square]
+  "Close Range" [shape=square]
+  "Mid Range" [shape=square]
+  "Max Range" [shape=square]
+  "Anti Air" [shape=square]
+  "VSkill" [shape=circle]
+  "St.LP" [shape=circle]
+  "St.MP" [shape=circle]
+  "St.HP" [shape=circle]
+  //"St.HK" [shape=circle]
+  "Cr.LP" [shape=circle]
+  "Cr.MP" [shape=circle]
+  "Cr.HP" [shape=circle]
+  "Cr.LK" [shape=circle]
+  "Cr.MK" [shape=circle]
+  "Cr.HK" [shape=circle]
+  "F+MP" [shape=circle]
+  "QCF LP" [shape=circle]
+  //"QCF MP" [shape=circle]
+  "QCF HP" [shape=circle]
+  "QCF EX P" [shape=circle]
+  "AIR QCB EX K" [shape=circle]
+  "QCB LK" [shape=circle]
+  "QCB MK" [shape=circle]
+  "QCB HK" [shape=circle]
+  "HCB LP" [shape=circle]
+  //"HCB MP" [shape=circle]
+  //"HCB HP" [shape=circle]
+
+  //"HCF LK" [shape=circle]
+  "HCF MK" [shape=circle]
+  "HCF HK" [shape=circle]
+  //"HCF EX K" [shape=circle]
+
+  "HCB EX P" [shape=circle]
+  "QCB EX K" [shape=circle]
+  "DP LP" [shape=circle]
+  "DP MP" [shape=circle]
+  "DP HP" [shape=circle]
+  "DP EX P" [shape=circle]
+
+  //dphpcombo [label = "DP HP", shape=circle]
+
+  "Kage" -> "Anti Air"
+  "Kage" -> "Close Range"
+  "Kage" -> "Max Range"
+  "Kage" -> "Mid Range"
+  "Kage" -> "Very Close Range"
+  //"CA" [shape=circle]
+  "Very Close Range" -> "Cr.LK"
+  "Very Close Range" -> "Cr.HP"
+  "Very Close Range" -> "Cr.LP"
+  "Close Range" -> "St.LP"
+  "Close Range" -> "St.LK"
+  "Close Range" -> "St.MP"
+  "St.MP" -> "St.LP"
+  "St.MP" -> "QCF EX P"
+  "St.MP" -> "QCF HP"
+  "QCF EX P" -> "Cr.HP" [label="VT1"]
+
+
+  "Anti Air" -> "DP MP"
+
+  "Cr.LK" -> "Cr.LP"
+  "Cr.LP" -> "DP LP"
+
+  "Cr.MP" -> "St.HP" [label="If close"]
+  "St.HP" -> "QCB HK"
+  "St.HP" -> "QCB EX K"
+  "QCB HK" -> "DP HP"
+  "QCB HK" -> "DP EX P"
+
+  "St.LP" -> "Cr.MP"
+  "Mid Range" -> "Cr.MP"
+  "Mid Range" -> "Cr.MK"
+  "Max Range" -> "Cr.HK"
+  "Cr.MP" -> "QCB LK"
+  "Cr.MP" -> "QCB MK"
+     "QCB MK" -> "DP LP"
+  "Cr.MP" -> "QCB EX K"
+
+  "Cr.MP" -> "QCF LP"
+  "HCB LP" -> "QCB EX K" [label="VT2"]
+
+  "QCB EX K" -> "F+MP"
+  "QCB EX K" -> "HCB EX P"
+  "QCB EX K" -> "QCF EX P"
+  "QCB EX K" -> "AIR QCB EX K"
+  "QCB EX K" -> "QCB HK"
+
+
+  "QCF EX P" -> "HCF MK"
+
+  "Cr.HP" -> "HCF HK"
+  "HCF HK" -> "Cr.MP"
+
+  "VSkill" -> "Cr.HP" [label="Dash"]
+
+}
