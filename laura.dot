@@ -1,0 +1,33 @@
+digraph dfa {
+  "Laura" [shape=square]
+  "Anti Air" [shape=square]
+  "Cr.LK" -> "Cr.LP"
+  "Cr.LP" -> "CA"
+  "F HP" -> "CA"
+  "St.LP" -> "St.LP"
+  "St.LP" -> "QCF LP"
+  "St.LK" -> "St.LK"
+  "St.LK" -> "QCF LP"
+  "Cr.MK" -> "QCF LP"
+  "St.MP" -> "St.MK"
+  "Cr.MP" -> "QCF MP"
+  "St.MP" -> "QCF MP"
+  "Cr.HP" -> "QCF MP"
+  "Cr.HP" -> "QCB P"
+  "QCB P" -> "CA"
+  "St.HP" -> "QCF MP"
+  "St.MP" -> "Cr.MP"  [label="on counter"]
+  "Cr.HP" -> "QCB PP"
+  "St.HP" -> "QCB PP"
+  "QCB PP" -> "Cr.HK"
+  "F HP" -> "St.LK"
+  "F HP" -> "St.HP"
+  "St.HP" -> "QCF HP"   [label="after forward HP"]
+  "QCB P" -> "Cr.HP"    [label="on two hits"]
+  "VS1" -> "Cr.HK"     [label="on crushcouter"]
+  "St.HK" -> "Cr.HP"     [label="on crushcouter"]
+  "St.HP" -> "Cr.HP"     [label="on crushcouter"]
+  "QCB P" -> "F HP"    [label="on 3 hits"]
+  "Cr.HP" -> "Cr.HP"    [label="on activate"]
+  "St.HP" -> "Cr.HP"    [label="on activate"]
+}
